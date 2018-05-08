@@ -68,7 +68,8 @@
   }
 
   .ngx-slide-over-route-container-hidden {
-    display: hidden;
+    display: hidden !important;
+    visibility: hidden !important;
   }
 
   // .ngx-slide-over-route + * {
