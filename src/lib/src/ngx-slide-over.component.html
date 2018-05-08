@@ -1,0 +1,58 @@
+<!-- <div class="ngx-slide-over-container" [ngClass]="direction" [@routerTransition]="getState(o)"> -->
+<div class="ngx-slide-over-container" [ngClass]="direction" [@routerTransition]="rState">
+<!-- <div class="ngx-slide-over-container" [ngClass]="direction"> -->
+
+  <!-- Container Bottom -->
+  <div class="ngx-slide-over-content">
+    <ng-container *ngIf="contentTpl">
+      <ng-template [ngTemplateOutlet]="contentTpl"></ng-template>
+    </ng-container>
+  </div>
+
+  <!-- Container Top -->
+  <!-- <ng-container *ngIf="contentTopTpl; else routerOutletTpl">
+    <div class="ngx-slide-over-content-top" [class.top-shown]="showTop">
+      <ng-template [ngTemplateOutlet]="contentTopTpl"></ng-template>
+    </div>
+  </ng-container>
+  <ng-template #routerOutletTpl>
+    <router-outlet class="ngx-slide-over-route"
+      (activate)="rState=!rState"
+      (deactivate)="rState=!rState">
+    </router-outlet>
+  </ng-template> -->
+
+  <!-- <div class="ngx-slide-over-content-top" [@routerTransition]="getState(o)">
+    <router-outlet #o="outlet"
+      (activate)="onActivateSlideOverRoute($event, o)"
+      (deactivate)="onDeactivateSlideOverRoute($event, o)"></router-outlet>
+  </div> -->
+
+  <!-- [class.top-shown]="showTop" -->
+  <!-- <router-outlet #rOutlet class="ngx-slide-over-route router-flex"
+    (activate)="onActivateSlideOverRoute($event, rOutlet)"
+    (deactivate)="onDeactivateSlideOverRoute($event, rOutlet)"></router-outlet> -->
+
+    <!-- <router-outlet class="ngx-slide-over-route" #o="outlet"
+      (activate)="rState=!rState"
+      (deactivate)="rState=!rState"></router-outlet> -->
+
+  <!-- <div class="ngx-slide-over-route-container" [class.ngx-slide-over-route-container]="routeContainerVisible">
+    <router-outlet #o="outlet"
+      (activate)="onActivateSlideOverRoute($event);rState=!rState"
+      (deactivate)="onDeactivateSlideOverRoute($event);rState=!rState"></router-outlet>
+  </div> -->
+
+  <div class="ngx-slide-over-route-container" [class.ngx-slide-over-route-container-hidden]="!routeContainerVisible">
+    <router-outlet class="ngx-slide-over-router-outlet" #o="outlet"
+      (activate)="routeContainerVisible=true;rState=!rState"
+      (deactivate)="routeContainerVisible=false;rState=!rState"></router-outlet>
+  </div>
+
+</div>
+
+
+<!-- <router-outlet
+        (activate)="onActivateSlideOverRoute($event)"
+        (deactivate)="onDeactivateSlideOverRoute($event)">
+      </router-outlet> -->
