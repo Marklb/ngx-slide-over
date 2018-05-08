@@ -58,11 +58,33 @@ export class NgxSlideOverComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    // console.log(this.route.snapshot.url, this)
     this.router.events.subscribe(r => {
+      // console.log(r)
       if (r instanceof NavigationStart) {
+        // console.log(this)
         this.rState = !this.rState
       }
     })
+  }
+
+  public getState(outlet: any) {
+    // console.log(outlet)
+    let _rState: string = ''
+    if (outlet.isActivated) {
+      if (outlet.activatedRoute.children.length === 0) {
+        const url = outlet.activatedRoute.snapshot.url.join('/')
+        console.log('url', url)
+        _rState = url
+      } else {
+        _rState = 'other'
+      }
+    } else {
+      _rState = 'other1'
+    }
+    console.log('_rState', _rState)
+    return _rState
+    // return outlet.ActivatedRoute.state
   }
 
 }

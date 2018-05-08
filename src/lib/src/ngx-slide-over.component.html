@@ -1,4 +1,5 @@
-<div class="ngx-slide-over-container" [ngClass]="direction" [@routerTransition]="rState">
+<!-- <div class="ngx-slide-over-container" [ngClass]="direction" [@routerTransition]="rState"> -->
+<div class="ngx-slide-over-container" [ngClass]="direction">
 
   <!-- Container Bottom -->
   <div class="ngx-slide-over-content">
@@ -15,7 +16,8 @@
   </ng-container>
   <ng-template #routerOutletTpl>
     <div class="ngx-slide-over-route-container"
-      [class.ngx-slide-over-route-container-hidden]="!routeContainerVisible">
+      [class.ngx-slide-over-route-container-hidden]="!routeContainerVisible"
+      [@routerTransition]="getState(o)">
       <router-outlet class="ngx-slide-over-router-outlet" #o="outlet"
         (activate)="routeContainerVisible=true;"
         (deactivate)="routeContainerVisible=false;"></router-outlet>
